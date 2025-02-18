@@ -1,6 +1,5 @@
 from fastapi import FastAPI
 from math_functions import add
-import random
 
 app = FastAPI()
 
