@@ -5,5 +5,15 @@ import random
 app = FastAPI()
 
 @app.get("/")
-async def root():
-    return {"message": "Hello World", "value": str(add(random.randint(0, 10), random.randint(11, 30)))}
+async def root(first_number: int, second_number: int):
+    answer = add(first_number, second_number)
+    return {"message": "Hello World", "value": str(answer)}
+
+@app.get("/health")
+async def healthCheck(apiResponse):
+    if apiResponse == True:
+        answer = "API status is good"
+    else:
+        answer = "API status is not good"
+
+    return {"message": answer}
